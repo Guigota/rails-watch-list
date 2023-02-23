@@ -1,0 +1,19 @@
+<div class="position-relative">
+  <h1><%= @list.name %></h1>
+</div>
+
+ <ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li class="list-group-item">
+      <%= bookmark.comment %>
+    </li>
+  <%end%>
+</ul>
+
+<div>
+<%= link_to list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+  <i class="fa-solid fa-trash"></i>
+<% end%>
+</div>
+
+<%= link_to "add a bookmark", new_list_bookmark_path(@list) %>

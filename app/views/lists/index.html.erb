@@ -1,0 +1,20 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80);">
+  <div class="text-center text-white">
+    <h1>My Lists</h1>
+  </div>
+  <div>
+    <%= link_to "Create a new list", new_list_path, class: "btn btn-primary"%>
+  </div>
+</div>
+
+<div class="container my-3">
+  <div class="cards">
+    <% @lists.each do |list| %>
+        <%= link_to list_path(list), class:"text-decoration-none" do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bW92aWV8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60);">
+            <%= list.name %>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>
